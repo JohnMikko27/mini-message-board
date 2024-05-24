@@ -9,7 +9,7 @@ const messages = [
   },
   {
     text: "Hello World!",
-    user: "Charles",
+    user: "Charlie",
     added: new Date()
   }
 ];
@@ -17,7 +17,18 @@ const messages = [
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: "Mini Messageboard", messages: messages });
 });
+
+router.get('/new', function(req, res, next) {
+  res.render('form')
+})
+
+router.post('/new', function(req, res) {
+  console.log(req.body.messageText)
+  console.log(req.body.author)
+
+})
+
 
 module.exports = router;
